@@ -59,6 +59,11 @@ declare module 'mercadopago' {
     auto_return?: string;
     external_reference?: string;
     expires?: boolean;
+    payment_methods: {
+      exclude_payment_methods: { id: string }[];
+      exclude_payment_types: { id: string }[];
+      installments: number;
+    };
   }
 
   export interface Preferences {

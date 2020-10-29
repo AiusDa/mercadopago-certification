@@ -28,7 +28,22 @@ export class AppService {
         pending: process.env.MERCADOPAGO_BACK_URLS,
         failure: process.env.MERCADOPAGO_BACK_URLS
       },
-      notification_url: process.env.MERCADOPAGO_NOTIFICATION_URL
+      notification_url: process.env.MERCADOPAGO_NOTIFICATION_URL,
+      payment_methods: {
+        exclude_payment_methods: [
+          {
+            id: 'amex'
+          }
+        ],
+        exclude_payment_types: [
+          {
+            id: 'atm'
+          }
+        ],
+        installments: 6
+      },
+      auto_return: 'approved',
+      external_reference: 'ahidalgo@idealizer.mx'
     };
 
     return preferences.create(preference);
