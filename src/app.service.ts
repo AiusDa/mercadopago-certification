@@ -30,12 +30,12 @@ export class AppService {
       },
       notification_url: process.env.MERCADOPAGO_NOTIFICATION_URL,
       payment_methods: {
-        exclude_payment_methods: [
+        excluded_payment_methods: [
           {
             id: 'amex'
           }
         ],
-        exclude_payment_types: [
+        excluded_payment_types: [
           {
             id: 'atm'
           }
@@ -52,7 +52,8 @@ export class AppService {
   public saveMercadopagoWebhookData(
     data: MercadopagoWebhookPayload
   ): Promise<void> {
-    console.log({ data });
+    console.log('Mercadopago Webhook');
+    console.log(JSON.stringify(data));
     return Promise.resolve();
   }
 }
